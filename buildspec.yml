@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - meteor --allow-superuser npm install
+  build:
+    commands:
+      - meteor --allow-superuser build --directory /tmp/meteor-build
+artifacts:
+  files:
+    - /tmp/meteor-build/**/*
+  name: emprica-test-$(date +%Y-%m-%d)
